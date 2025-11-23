@@ -1,6 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkf8t0q664oc8"]
+[gd_scene load_steps=4 format=3 uid="uid://dkf8t0q664oc8"]
 
 [ext_resource type="Script" uid="uid://50moapic8k40" path="res://scripts/game.gd" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://dyt4i4i0lmkoe" path="res://scenes/player.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://bi0yvg5cdarsi" path="res://scenes/platform.tscn" id="3_lnu2h"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_uwrxv")
+
+[node name="Player" parent="." instance=ExtResource("2_yqjtg")]
+z_index = 1
+position = Vector2(278, 846)
+
+[node name="PlatformParent" type="Node2D" parent="."]
+
+[node name="Platform" parent="PlatformParent" instance=ExtResource("3_lnu2h")]
+position = Vector2(9, 890)
+
+[node name="Platform2" parent="PlatformParent" instance=ExtResource("3_lnu2h")]
+position = Vector2(143, 891)
+
+[node name="Platform3" parent="PlatformParent" instance=ExtResource("3_lnu2h")]
+position = Vector2(277, 890)
+
+[node name="Platform4" parent="PlatformParent" instance=ExtResource("3_lnu2h")]
+position = Vector2(409, 888)

@@ -5,11 +5,13 @@ var camera
 var platform_scene = preload("res://scenes/platform.tscn")
 var platform_width
 var platform_height
+var player_scene = preload("res://scenes/player.tscn")
 
 func _ready() -> void:
 	instantiate_camera()
 	get_platform_dimensions()
 	generate_floor()
+	load_player()
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("quit"):
@@ -19,7 +21,6 @@ func _process(delta: float) -> void:
 
 func instantiate_camera() -> void:
 	camera = camera_scene.instantiate()
-	camera.setup_camera($Player)
 	add_child(camera)
 	
 func get_platform_dimensions() -> void:
@@ -41,7 +42,11 @@ func generate_floor() -> void:
 		create_platform(Vector2(x * i, bottom_of_screen))
 
 func load_player() -> void:
-	pass
+	var player = player_scene.instantiate()
+	player.global_position.x = camera.viewport_center_x
+	player.global_position.y = camera.viewport_center_y
+	add_child(player)
+	camera.setup_camera(player)
 	
 	
 	

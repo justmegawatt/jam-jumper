@@ -18,14 +18,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	handle_animation()
 
-func handle_animation() -> void:
-	if velocity.y > 0:
-		if $AnimationPlayer.current_animation != "fall":
-			$AnimationPlayer.play("fall")
-	elif velocity.y < 0:
-		if $AnimationPlayer.current_animation != "jump":
-			$AnimationPlayer.play("jump")
-
 func _input(event) -> void:
 	pass
 
@@ -34,7 +26,15 @@ func _physics_process(delta: float) -> void:
 	handle_character_gravity()
 	handle_viewport_edge_teleporting()
 	move_and_slide()
-	
+
+func handle_animation() -> void:
+	if velocity.y > 0:
+		if $AnimationPlayer.current_animation != "fall":
+			$AnimationPlayer.play("fall")
+	elif velocity.y < 0:
+		if $AnimationPlayer.current_animation != "jump":
+			$AnimationPlayer.play("jump")
+
 func handle_character_movement() -> void:	
 	var direction_x = Input.get_axis("move_left", "move_right")
 	if direction_x:

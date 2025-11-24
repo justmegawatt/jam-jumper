@@ -31,5 +31,5 @@ func load_player() -> void:
 	
 func start_level_generator() -> void:
 	level_generator = level_generator_scene.instantiate()
-	level_generator.initialize(camera, player, $PlatformParent)
+	level_generator.initialize(camera, player)
 	add_child(level_generator)

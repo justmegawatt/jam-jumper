@@ -12,6 +12,14 @@ var platform_height
 var interval_check_time = 0.5
 var time_elapsed = 0.0
 
+func initialize(_camera: Camera2D, _player: PlayerCharacter) -> void:
+	camera = _camera
+	player = _player
+	platform_parent = $PlatformParent
+	get_platform_dimensions()
+	generate_floor()
+	create_random_platforms()
+
 func _process(delta: float) -> void:
 	time_elapsed += delta
 	if time_elapsed > interval_check_time:
@@ -19,14 +27,6 @@ func _process(delta: float) -> void:
 			create_random_platforms()
 		platform_cleanup()
 		time_elapsed = 0.0
-
-func initialize(_camera: Camera2D, _player: PlayerCharacter, _platform_parent: Node2D) -> void:
-	camera = _camera
-	player = _player
-	platform_parent = _platform_parent
-	get_platform_dimensions()
-	generate_floor()
-	create_random_platforms()
 
 func get_platform_dimensions() -> void:
 	var temp_platform = platform_scene.instantiate()

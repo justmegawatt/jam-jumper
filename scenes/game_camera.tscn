@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://b2wh5h76nh7vt"]
+[gd_scene load_steps=3 format=3 uid="uid://b2wh5h76nh7vt"]
 
 [ext_resource type="Script" uid="uid://dtbcqvpmxfqyp" path="res://scripts/game_camera.gd" id="1_1qhs2"]
+[ext_resource type="Script" uid="uid://cq3d2wemvpca5" path="res://scripts/platform_destroyer.gd" id="2_qq1a7"]
 
 [node name="GameCamera" type="Camera2D"]
 script = ExtResource("1_1qhs2")
+
+[node name="PlatformDestroyer" type="Area2D" parent="."]
+script = ExtResource("2_qq1a7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformDestroyer"]
+debug_color = Color(0, 0.6, 0.7019608, 0.41960785)
+
+[connection signal="area_entered" from="PlatformDestroyer" to="PlatformDestroyer" method="_on_area_entered"]

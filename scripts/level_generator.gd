@@ -25,7 +25,6 @@ func _process(delta: float) -> void:
 	if time_elapsed > interval_check_time:
 		if is_player_near_top():
 			create_random_platforms()
-		platform_cleanup()
 		time_elapsed = 0.0
 
 func get_platform_dimensions() -> void:
@@ -56,9 +55,3 @@ func create_random_platforms() -> void:
 		var platform_position_y = topmost_platform_y - random_y_distance_between_platforms
 		create_platform(Vector2(random_horizontal_position, platform_position_y))
 		topmost_platform_y = platform_position_y
-
-func platform_cleanup() -> void:
-	var platforms = platform_parent.get_children()
-	for platform in platforms:
-		if platform.global_position.y > camera.limit_bottom:
-			platform.queue_free()

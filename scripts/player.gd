@@ -52,8 +52,6 @@ func handle_viewport_edge_teleporting() -> void:
 		global_position.x = 0 - viewport_margin
 	if global_position.x < 0 - viewport_margin:
 		global_position.x = viewport_size.x + viewport_margin
-	if global_position.y > viewport_size.y:
-		global_position.y = 0
 	
 func platform_bounce() -> void:
 	if velocity.y > 0:

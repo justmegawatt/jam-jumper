@@ -24,8 +24,7 @@ func _physics_process(delta: float) -> void:
 	pass
 	
 func setup_camera(_player: PlayerCharacter):
-	if _player:
-		player = _player
+	player = _player
 		
 func has_player_reached_new_heights() -> bool:
 	if player and player.global_position.y + viewport_center_y < limit_bottom:

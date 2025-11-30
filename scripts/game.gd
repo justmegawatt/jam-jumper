@@ -6,11 +6,14 @@ var player_scene = preload("res://scenes/player.tscn")
 var player
 var level_generator_scene = preload("res://scenes/level_generator.tscn")
 var level_generator
+var ground_scene = preload("res://scenes/ground.tscn")
+var ground
 
 func _ready() -> void:
 	instantiate_camera()
 	load_player()
 	start_level_generator()
+	create_ground()
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("quit"):
@@ -33,3 +36,8 @@ func start_level_generator() -> void:
 	level_generator = level_generator_scene.instantiate()
 	level_generator.initialize(camera, player)
 	add_child(level_generator)
+
+func create_ground() -> void:
+	ground = ground_scene.instantiate()
+	ground.initialize(camera)
+	add_child(ground)

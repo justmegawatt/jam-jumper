@@ -6,10 +6,10 @@
 [node name="GameCamera" type="Camera2D"]
 script = ExtResource("1_1qhs2")
 
-[node name="PlatformDestroyer" type="Area2D" parent="."]
+[node name="Destroyer" type="Area2D" parent="."]
 script = ExtResource("2_qq1a7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformDestroyer"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Destroyer"]
 debug_color = Color(0, 0.6, 0.7019608, 0.41960785)
 
-[connection signal="area_entered" from="PlatformDestroyer" to="PlatformDestroyer" method="_on_area_entered"]
+[connection signal="area_entered" from="Destroyer" to="Destroyer" method="_on_area_entered"]

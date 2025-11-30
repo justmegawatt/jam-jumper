@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://tfoyb54lfahj"]
+
+[ext_resource type="Script" uid="uid://kb6xo85knis" path="res://scripts/ground.gd" id="1_pybca"]
+[ext_resource type="Texture2D" uid="uid://8x3exulw80gn" path="res://assets/textures/bg/Ground.png" id="2_mi8v4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mi8v4"]
+
+[node name="Ground" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_pybca")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_mi8v4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mi8v4")

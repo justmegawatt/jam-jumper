@@ -27,3 +27,7 @@ func setup_collision() -> void:
 func _on_area_entered(area: Area2D) -> void:
 	if area is Platform:
 		area.queue_free()
+	if area.name == "Ground":
+		area.queue_free()
+		
+	

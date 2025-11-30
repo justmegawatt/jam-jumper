@@ -40,4 +40,4 @@ func adjust_camera_floor() -> void:
 	limit_bottom = player.global_position.y + viewport_center_y
 
 func initialize_platform_destroyer() -> void:
-	$PlatformDestroyer.initialize(self)
+	$Destroyer.initialize(self)

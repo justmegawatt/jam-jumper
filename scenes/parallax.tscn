@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://wo1u1mj71rs3"]
+
+[ext_resource type="Script" uid="uid://c3f6de7la1303" path="res://scripts/parallax.gd" id="1_dgjee"]
+[ext_resource type="Texture2D" uid="uid://m0giqqkbcka1" path="res://assets/textures/bg/Layer1.png" id="1_m6okp"]
+[ext_resource type="Texture2D" uid="uid://0c4dpdd3fvt6" path="res://assets/textures/bg/Layer2.png" id="2_dgjee"]
+[ext_resource type="Texture2D" uid="uid://8ubt8ekjfgdb" path="res://assets/textures/bg/Layer3.png" id="3_quimm"]
+
+[node name="Parallax" type="Node2D"]
+script = ExtResource("1_dgjee")
+
+[node name="Sky" type="Parallax2D" parent="."]
+z_index = -1
+scroll_scale = Vector2(1, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sky"]
+texture = ExtResource("1_m6okp")
+
+[node name="Trees" type="Parallax2D" parent="."]
+z_index = -1
+scroll_scale = Vector2(1, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Trees"]
+texture = ExtResource("2_dgjee")
+
+[node name="Branches" type="Parallax2D" parent="."]
+z_index = -1
+scroll_scale = Vector2(1, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Branches"]
+texture = ExtResource("3_quimm")

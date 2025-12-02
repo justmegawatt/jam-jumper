@@ -8,14 +8,17 @@ var level_generator_scene = preload("res://scenes/level_generator.tscn")
 var level_generator
 var ground_scene = preload("res://scenes/ground.tscn")
 var ground
+var parallax_scene = preload("res://scenes/parallax.tscn")
+var parallax
 
 func _ready() -> void:
 	instantiate_camera()
 	load_player()
 	start_level_generator()
 	create_ground()
+	start_parallax()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
 	if Input.is_action_just_pressed("reset"):
@@ -41,3 +44,8 @@ func create_ground() -> void:
 	ground = ground_scene.instantiate()
 	ground.initialize(camera)
 	add_child(ground)
+
+func start_parallax() -> void:
+	parallax = parallax_scene.instantiate()
+	parallax.initialize(camera)
+	add_child(parallax)

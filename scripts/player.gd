@@ -15,13 +15,13 @@ func _ready() -> void:
 	viewport_size = get_viewport_rect().size
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	handle_animation()
 
-func _input(event) -> void:
+func _input(_event) -> void:
 	pass
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	handle_character_movement()
 	handle_character_gravity()
 	handle_viewport_edge_teleporting()

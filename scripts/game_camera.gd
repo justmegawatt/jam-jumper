@@ -1,7 +1,6 @@
 extends Camera2D
 
 var player: PlayerCharacter = null
-@onready var max_height_reached = get_viewport_rect().size.y
 @onready var viewport_width = get_viewport_rect().size.x
 @onready var viewport_height = get_viewport_rect().size.y
 var viewport_center_x
@@ -11,13 +10,13 @@ func _ready() -> void:
 	initialize_variables()
 	initialize_platform_destroyer()
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if has_player_reached_new_heights():
 		adjust_camera_floor()
 	if player:
 		global_position.y = player.global_position.y
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	pass
 
 func initialize_variables() -> void:
